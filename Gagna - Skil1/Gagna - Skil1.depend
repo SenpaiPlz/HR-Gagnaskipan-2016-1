@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1452512542 source:c:\users\eythor\documents\github\hr-gagnaskipan-2016-1\gagna - skil1\main.cpp
+	<iostream>
+	<cstdlib>
+	"Matrix.h"
+
+1452512607 c:\users\eythor\documents\github\hr-gagnaskipan-2016-1\gagna - skil1\include\matrix.h
+	<iostream>
+
+1452512607 source:c:\users\eythor\documents\github\hr-gagnaskipan-2016-1\gagna - skil1\src\matrix.cpp
+	"Matrix.h"
+
