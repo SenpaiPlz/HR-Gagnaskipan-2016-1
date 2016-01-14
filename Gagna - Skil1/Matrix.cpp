@@ -1,5 +1,7 @@
 #include "Matrix.h"
 
+//Initializes the Array as Mooshak does not accept non static initialize lists.
+
 Matrix::Matrix()
 {
     for(int i = 0; i < MAX; i++)
@@ -29,6 +31,8 @@ Matrix::~Matrix()
     //dtor
 }
 
+//Simple output operator overload
+
 ostream& operator << (ostream& out, const Matrix& m)
 {
     for(int i = 0; i < m.Height; i++)
@@ -43,6 +47,8 @@ ostream& operator << (ostream& out, const Matrix& m)
     return out;
 }
 
+//Simple input operator overload
+
 istream& operator >> (istream& in, Matrix& m)
 {
     for(int i = 0; i < m.Height; i++)
@@ -55,6 +61,8 @@ istream& operator >> (istream& in, Matrix& m)
 
     return in;
 }
+
+//+ operator overload for Matrix addition.
 
 Matrix operator + (const Matrix& a, const Matrix& b)
 {
@@ -80,6 +88,8 @@ Matrix operator + (const Matrix& a, const Matrix& b)
 
     return ret;
 }
+
+//* operator overload for Matrix multiplication (set of vector dot products).
 
 Matrix operator * (const Matrix& a, const Matrix& b)
 {
@@ -109,6 +119,8 @@ Matrix operator * (const Matrix& a, const Matrix& b)
 
     return ret;
 }
+
+//Creates a Array that is the source array transposed.
 
 Matrix Matrix::transpose()
 {
