@@ -1,9 +1,27 @@
 #include "Matrix.h"
 
+Matrix::Matrix()
+{
+    for(int i = 0; i < MAX; i++)
+    {
+        for(int j = 0; j < MAX; j++)
+        {
+            Arr[i][j] = 0;
+        }
+    }
+}
+
 Matrix::Matrix(const int& a, const int& b)
 {
     Height = a;
     Width = b;
+    for(int i = 0; i < Height; i++)
+    {
+        for(int j = 0; j < Width; j++)
+        {
+            Arr[i][j] = 0;
+        }
+    }
 }
 
 Matrix::~Matrix()
