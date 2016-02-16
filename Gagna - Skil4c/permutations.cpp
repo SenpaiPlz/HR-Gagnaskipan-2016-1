@@ -85,10 +85,9 @@ void Permutations::insert(int num, NodePtr smaller, NodePtr& larger)
 
     while (smaller != NULL) { // Traverse the 'smaller' list
 
-        for (int i = 0; i <= smaller->setSize; i++) { // Iterate through the set.
+        for (int i = 0; i <= smaller->setSize; i++) {
 
-            // Create a new set which is one larger than the current set and add 'num' in the correct pos
-            // This will become part of the list pointed to by 'larger'
+            //Create a node for every integer point in the array.
 
             NodePtr temp = new Node;
             temp->setSize = smaller->setSize+1;
@@ -96,6 +95,8 @@ void Permutations::insert(int num, NodePtr smaller, NodePtr& larger)
 
             for(int i = 0; i < temp->setSize; i++)
             {
+                //a simple position based insertion
+
                 if(i < pos%temp->setSize)
                 {
                     temp->setPtr[i] = smaller->setPtr[i];
@@ -127,10 +128,11 @@ void Permutations::insert(int num, NodePtr smaller, NodePtr& larger)
 // Recursive function that returns a list containing all of the permutations of the set
 NodePtr Permutations::permutate(int set[], int size)
 {
-    // You have to implement this function.
-    // It should call itself recursively and also call the insert function
+    // if size is 1: base case.
+    // if size > 1: Recursively call Permutation until with size-1.
     if(size == 1)
     {
+        //base case
         myPerms = new Node;
         myPerms->next = NULL;
         myPerms->setSize = 1;
@@ -139,8 +141,9 @@ NodePtr Permutations::permutate(int set[], int size)
     }
     else
     {
-        NodePtr temp = permutate(set,size-1);
-        insert(set[size-1],temp,myPerms);
+        //recursion
+        myPerms = permutate(set,size-1);
+        insert(set[size-1],myPerms,myPerms);
     }
     return myPerms;
 }
